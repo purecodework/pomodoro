@@ -2,10 +2,11 @@ import convertTime from "../actions/convertTime";
 import styled from "styled-components";
 
 const TimerWrapper = styled.div`
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  height: 280px;
-  width: 280px;
+  height: 240px;
+  width: 240px;
   border-radius: 50%;
   border-style: solid;
 `;

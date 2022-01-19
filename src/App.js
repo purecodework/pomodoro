@@ -18,6 +18,13 @@ const AppWrapper = styled.div`
   box-shadow: 20px 20px 60px #b3b3b3, -20px -20px 60px #ffffff;
 `;
 
+const Wrapper = styled.div`
+  padding-left: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const Title = styled.h1`
   padding-top: 5%;
   text-align: center;
@@ -25,9 +32,21 @@ const Title = styled.h1`
 
 const ControlWrapper = styled.div`
   margin: 0 auto;
-  margin-top: 2%;
   display: flex;
   justify-content: center;
+  width: 350px;
+  margin-bottom: 15%;
+`;
+
+const ResetWrapper = styled.div`
+  width: 25%;
+  margin-left: 5%;
+`;
+
+const LabelWrapper = styled.div`
+  margin-top: 10%;
+  display: flex;
+  flex-direction: row;
 `;
 
 const App = () => {
@@ -145,37 +164,32 @@ const App = () => {
   return (
     <AppWrapper>
       <div className="App">
-        <div className="wrapper pt-5">
+        <Wrapper>
           <Title>Pomodoro</Title>
-          <Timer
-            isSession={isSession}
-            timeLeft={
-              isSession ? sessionLength.sessionLeft : breakLength.breakLeft
-            }
-          />
+          <ResetWrapper onClick={onReset}>
+            <Reset />
+          </ResetWrapper>
+        </Wrapper>
+        <Timer
+          isSession={isSession}
+          timeLeft={
+            isSession ? sessionLength.sessionLeft : breakLength.breakLeft
+          }
+        />
 
-          <ControlWrapper>
-            <Reset onReset={onReset} />
-            <PlayStop onPlayStop={onPlayStop} />
-          </ControlWrapper>
-
-          <div className="text-center mt-5">
-            <div>
-              <SessionLabel
-                sessionInc={sessionInc}
-                sessionDec={sessionDec}
-                sessionLength={sessionLength.sessionLength}
-              />
-            </div>
-            <div>
-              <BreakLabel
-                breakInc={breakInc}
-                breakDec={breakDec}
-                breakLength={breakLength.breakLength}
-              />
-            </div>
-          </div>
-        </div>
+        <ControlWrapper>
+          <PlayStop onPlayStop={onPlayStop} />
+        </ControlWrapper>
+        <SessionLabel
+          sessionInc={sessionInc}
+          sessionDec={sessionDec}
+          sessionLength={sessionLength.sessionLength}
+        />
+        <BreakLabel
+          breakInc={breakInc}
+          breakDec={breakDec}
+          breakLength={breakLength.breakLength}
+        />
       </div>
     </AppWrapper>
   );

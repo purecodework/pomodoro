@@ -5,7 +5,6 @@ const ControlButton = styled.button`
   font-size: 30px;
   height: 50px;
   width: 50px;
-  margin: 1.5vw;
   border-color: transparent;
   border-radius: 19px;
   background: #e0e0e0;

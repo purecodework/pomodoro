@@ -2,7 +2,7 @@ import ControlButton from "../styles/ControlButton";
 
 const Reset = ({ onReset }) => {
   return (
-    <ControlButton id="reset" onClick={onReset}>
+    <div id="reset" onClick={onReset}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -17,7 +17,7 @@ const Reset = ({ onReset }) => {
         />
         <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
       </svg>
-    </ControlButton>
+    </div>
   );
 };
 

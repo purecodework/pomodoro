@@ -1,20 +1,39 @@
-import ControlButton from "../styles/ControlButton";
+import FlatButton from "../styles/FlatButton";
+import styled from "styled-components";
+
+const SessionLabelWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 350px;
+  height: 30px;
+`;
+
+const Title = styled.p`
+  text-align: center;
+`;
+
+const Length = styled.p`
+  margin-left: 2%;
+  margin-right: 2%;
+  color: #1890ff;
+`;
 
 const SessionLabel = ({ sessionInc, sessionDec, sessionLength }) => {
   return (
-    <div id="session-label">
-      <div>Session</div>
-
-      <div className="session-wrapper">
-        <ControlButton id="session-increment" onClick={() => sessionInc()}>
-          +
-        </ControlButton>
-        {/* <p id="session-length">{sessionLength}</p> */}
-        <ControlButton id="session-decrement" onClick={() => sessionDec()}>
-          -
-        </ControlButton>
-      </div>
-    </div>
+    <>
+      <Title>Session</Title>
+      <SessionLabelWrapper id="session-label">
+        <FlatButton id="session-increment" onClick={() => sessionInc()}>
+          {"<"}
+        </FlatButton>
+        <Length> {sessionLength}</Length>
+        <FlatButton id="session-decrement" onClick={() => sessionDec()}>
+          {">"}
+        </FlatButton>
+      </SessionLabelWrapper>
+    </>
   );
 };
 
