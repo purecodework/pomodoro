@@ -4,7 +4,6 @@ import SessionLabel from "./components/SessionLabel";
 import Timer from "./components/Timer";
 import PlayStop from "./components/PlayStop";
 import Reset from "./components/Reset";
-import Circle from "./components/Circle";
 import styled from "styled-components";
 
 const AppWrapper = styled.div`
@@ -172,7 +171,9 @@ const App = () => {
           </ResetWrapper>
         </Wrapper>
         <Timer
+          isStart={isStart}
           isSession={isSession}
+          sessionLength={sessionLength}
           timeLeft={
             isSession ? sessionLength.sessionLeft : breakLength.breakLeft
           }

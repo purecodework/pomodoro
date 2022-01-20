@@ -1,6 +1,7 @@
 import convertTime from "../actions/convertTime";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion, useAnimation, useMotionValue } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const TimerWrapper = styled.div`
   position: relative;
@@ -67,22 +68,20 @@ const AbsWrapper = styled.div`
   height: 230px;
 `;
 
-const Timer = ({ timeLeft, isSession }) => {
-  let time = timeLeft.toString();
-  let a = "12";
-
+const Timer = ({ timeLeft, isSession, isStart, sessionLength }) => {
   return (
     <TimerWrapper>
+      {timeLeft}
       <OuterCircle>
         <InnerCircle>
           <TimerLabel>
             <span>{isSession ? "Session" : "Break"}</span>
           </TimerLabel>
-
           <TimeLeft id="time-left">{convertTime(timeLeft)}</TimeLeft>
         </InnerCircle>
-        <AbsWrapper>
+        <AbsWrapper key="Abs">
           <svg
+            key="circleSvg"
             xmlns="http://www.w3.org/2000/svg"
             version="1.1"
             width="230px"
@@ -90,19 +89,22 @@ const Timer = ({ timeLeft, isSession }) => {
             transform="rotate(-90)"
           >
             <motion.circle
+              key="thecircle"
               cx="115"
               cy="115"
               r="111"
-              fill="none "
+              fill="none"
               stroke="blue"
               stroke-width="6px"
               stroke-dasharray="1358"
               stroke-dashoffset="1358"
-              animate={{ strokeDashoffset: 0 }}
+              animate={{
+                strokeDashoffset: isStart ? 0 : 1358,
+              }}
               transition={{
                 type: "linear",
-                duration: time,
-                repeatType: "forwards",
+                duration: 60,
+                repeatType: "loop",
               }}
             />
           </svg>
