@@ -1,5 +1,6 @@
 import FlatButton from "../styles/FlatButton";
 import styled from "styled-components";
+import ControlButton from "../styles/ControlButton";
 
 const SessionLabelWrapper = styled.div`
   display: flex;

@@ -32,6 +32,7 @@ const Title = styled.h1`
 
 const ControlWrapper = styled.div`
   margin: 0 auto;
+  margin-top: 10%;
   display: flex;
   justify-content: center;
   width: 350px;
@@ -173,14 +174,15 @@ const App = () => {
         <Timer
           isStart={isStart}
           isSession={isSession}
-          sessionLength={sessionLength}
+          sessionLength={sessionLength.sessionLength * 60}
+          breakLength={breakLength.breakLength * 60}
           timeLeft={
             isSession ? sessionLength.sessionLeft : breakLength.breakLeft
           }
         />
 
         <ControlWrapper>
-          <PlayStop onPlayStop={onPlayStop} />
+          <PlayStop isStart={isStart} onPlayStop={onPlayStop} />
         </ControlWrapper>
         <SessionLabel
           sessionInc={sessionInc}

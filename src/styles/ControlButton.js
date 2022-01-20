@@ -6,16 +6,19 @@ const ControlButton = styled.button`
   height: 50px;
   width: 50px;
   border-color: transparent;
-  border-radius: 19px;
+  border-radius: 15px;
   background: #e0e0e0;
-  box-shadow: 6px 6px 12px #b3b3b3, -6px -6px 12px #ffffff;
+  box-shadow: 9px 9px 18px #bebebe, -9px -9px 18px #ffffff;
   &:active {
+    color: #3d4856;
+    font-size: 30px;
+    height: 50px;
+    width: 50px;
+    border-color: transparent;
+
     color: #009aff;
-    border-radius: 25px;
-    background: #cdd4df;
-    border-radius: 22px;
-    background: #cdd4df;
-    box-shadow: inset 13px 13px 26px #aab0b9, inset -13px -13px 26px #f0f8ff;
+    border-radius: 15px;
+    box-shadow: inset 9px 9px 18px #bebebe, inset -9px -9px 18px #ffffff;
   }
 `;
 

@@ -1,7 +1,6 @@
 import convertTime from "../actions/convertTime";
 import styled from "styled-components";
-import { motion, useAnimation, useMotionValue } from "framer-motion";
-import { useState, useEffect } from "react";
+import Pie from "./pie";
 
 const TimerWrapper = styled.div`
   position: relative;
@@ -68,10 +67,13 @@ const AbsWrapper = styled.div`
   height: 230px;
 `;
 
-const Timer = ({ timeLeft, isSession, isStart, sessionLength }) => {
+const Timer = ({ timeLeft, isSession, sessionLength, breakLength }) => {
+  let init = isSession
+    ? (timeLeft / sessionLength) * 100
+    : timeLeft / breakLength;
+  let per = 100 - init;
   return (
     <TimerWrapper>
-      {timeLeft}
       <OuterCircle>
         <InnerCircle>
           <TimerLabel>
@@ -80,34 +82,7 @@ const Timer = ({ timeLeft, isSession, isStart, sessionLength }) => {
           <TimeLeft id="time-left">{convertTime(timeLeft)}</TimeLeft>
         </InnerCircle>
         <AbsWrapper key="Abs">
-          <svg
-            key="circleSvg"
-            xmlns="http://www.w3.org/2000/svg"
-            version="1.1"
-            width="230px"
-            height="230px"
-            transform="rotate(-90)"
-          >
-            <motion.circle
-              key="thecircle"
-              cx="115"
-              cy="115"
-              r="111"
-              fill="none"
-              stroke="blue"
-              stroke-width="6px"
-              stroke-dasharray="1358"
-              stroke-dashoffset="1358"
-              animate={{
-                strokeDashoffset: isStart ? 0 : 1358,
-              }}
-              transition={{
-                type: "linear",
-                duration: 60,
-                repeatType: "loop",
-              }}
-            />
-          </svg>
+          <Pie percentage={per} colour="blue" />
         </AbsWrapper>
       </OuterCircle>
     </TimerWrapper>
