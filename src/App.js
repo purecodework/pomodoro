@@ -4,13 +4,14 @@ import SessionLabel from "./components/SessionLabel";
 import Timer from "./components/Timer";
 import PlayStop from "./components/PlayStop";
 import Reset from "./components/Reset";
+import Circle from "./components/Circle";
 import styled from "styled-components";
 
 const AppWrapper = styled.div`
-  display: flex;
-  flex-direction: flex-column;
-  justify-content: center;
-  margin-top: 5vw;
+  // display: flex;
+  // flex-direction: flex-column;
+  // justify-content: center;
+  // margin-top: 5vw;
   height: 700px;
   width: 350px;
   border-radius: 30px;
@@ -58,8 +59,8 @@ const App = () => {
   });
 
   const [sessionLength, setSessionLength] = useState({
-    sessionLength: 25,
-    sessionLeft: 25 * 60,
+    sessionLength: 1,
+    sessionLeft: 1 * 60,
   });
   //break and session control
   const breakInc = () => {
@@ -162,8 +163,8 @@ const App = () => {
   }, [isStart, isSession, breakLength, sessionLength]);
 
   return (
-    <AppWrapper>
-      <div className="App">
+    <div className="App">
+      <AppWrapper>
         <Wrapper>
           <Title>Pomodoro</Title>
           <ResetWrapper onClick={onReset}>
@@ -190,8 +191,8 @@ const App = () => {
           breakDec={breakDec}
           breakLength={breakLength.breakLength}
         />
-      </div>
-    </AppWrapper>
+      </AppWrapper>
+    </div>
   );
 };
 

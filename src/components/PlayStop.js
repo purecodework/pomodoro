@@ -1,5 +1,6 @@
 import ControlButton from "../styles/ControlButton";
 import styled from "styled-components";
+
 const PlayButton = styled(ControlButton)`
   margin-top: 5%;
 `;
