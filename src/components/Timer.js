@@ -1,18 +1,14 @@
 import convertTime from "../actions/convertTime";
 import styled from "styled-components";
-import Pie from "./pie";
+import Progress from "./Progress";
 
 const TimerWrapper = styled.div`
   position: relative;
   margin-top: 5%;
   margin-bottom: 5%;
   margin: 0 auto;
-  // display: flex;
-  // flex-direction: column;
   height: 240px;
   width: 240px;
-  // border-radius: 50%;
-  // border-style: solid;
 `;
 
 const TimerLabel = styled.div`
@@ -68,10 +64,11 @@ const AbsWrapper = styled.div`
 `;
 
 const Timer = ({ timeLeft, isSession, sessionLength, breakLength }) => {
-  let init = isSession
+  let remainRatio = isSession
     ? (timeLeft / sessionLength) * 100
-    : timeLeft / breakLength;
-  let per = 100 - init;
+    : (timeLeft / breakLength) * 100;
+  let completeRatio = 100 - remainRatio;
+
   return (
     <TimerWrapper>
       <OuterCircle>
@@ -81,8 +78,8 @@ const Timer = ({ timeLeft, isSession, sessionLength, breakLength }) => {
           </TimerLabel>
           <TimeLeft id="time-left">{convertTime(timeLeft)}</TimeLeft>
         </InnerCircle>
-        <AbsWrapper key="Abs">
-          <Pie percentage={per} colour="blue" />
+        <AbsWrapper>
+          <Progress percentage={completeRatio} isSession={isSession} />
         </AbsWrapper>
       </OuterCircle>
     </TimerWrapper>

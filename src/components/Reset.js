@@ -4,7 +4,7 @@ const ResetWrapper = styled.div`
   background: #e0e0e0;
 
   padding-top: 20px;
-  margin-left: 20px;
+  margin-left: 30px;
   // display: flex;
   // justify-content: center;
   // align-items: center;
@@ -15,8 +15,8 @@ const Reset = ({ onReset }) => {
     <ResetWrapper id="reset" onClick={onReset}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="30"
-        height="30"
+        width="25"
+        height="25"
         fill="currentColor"
         class="bi bi-arrow-counterclockwise"
         viewBox="0 0 16 16"

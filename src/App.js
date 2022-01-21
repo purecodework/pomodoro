@@ -7,11 +7,7 @@ import Reset from "./components/Reset";
 import styled from "styled-components";
 
 const AppWrapper = styled.div`
-  // display: flex;
-  // flex-direction: flex-column;
-  // justify-content: center;
-  // margin-top: 5vw;
-  height: 700px;
+  height: 670px;
   width: 350px;
   border-radius: 30px;
   background: #e0e0e0;
@@ -28,6 +24,8 @@ const Wrapper = styled.div`
 const Title = styled.h1`
   padding-top: 5%;
   text-align: center;
+  font-size: 24px;
+  font-weight: normal;
 `;
 
 const ControlWrapper = styled.div`
