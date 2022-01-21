@@ -11,12 +11,12 @@ const BreakLabelWrapper = styled.div`
 `;
 const Title = styled.p`
   text-align: center;
+  color: #64748b;
 `;
 
 const Length = styled.p`
   margin-left: 2%;
   margin-right: 2%;
-  color: #1890ff;
 `;
 
 const BreakLabel = ({ breakInc, breakDec, breakLength }) => {
@@ -24,11 +24,12 @@ const BreakLabel = ({ breakInc, breakDec, breakLength }) => {
     <>
       <Title>Break</Title>
       <BreakLabelWrapper id="break-label">
-        <FlatButton id="session-increment" onClick={() => breakInc()}>
+        <FlatButton id="session-decrement" onClick={() => breakDec()}>
           {"<"}
         </FlatButton>
         <Length>{breakLength}</Length>
-        <FlatButton id="session-decrement" onClick={() => breakDec()}>
+
+        <FlatButton id="session-increment" onClick={() => breakInc()}>
           {">"}
         </FlatButton>
       </BreakLabelWrapper>

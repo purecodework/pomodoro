@@ -1,6 +1,5 @@
 import FlatButton from "../styles/FlatButton";
 import styled from "styled-components";
-import ControlButton from "../styles/ControlButton";
 
 const SessionLabelWrapper = styled.div`
   display: flex;
@@ -13,12 +12,12 @@ const SessionLabelWrapper = styled.div`
 
 const Title = styled.p`
   text-align: center;
+  color: #64748b;
 `;
 
 const Length = styled.p`
   margin-left: 2%;
   margin-right: 2%;
-  color: #1890ff;
 `;
 
 const SessionLabel = ({ sessionInc, sessionDec, sessionLength }) => {
@@ -26,11 +25,11 @@ const SessionLabel = ({ sessionInc, sessionDec, sessionLength }) => {
     <>
       <Title>Session</Title>
       <SessionLabelWrapper id="session-label">
-        <FlatButton id="session-increment" onClick={() => sessionInc()}>
+        <FlatButton id="session-decrement" onClick={() => sessionDec()}>
           {"<"}
         </FlatButton>
         <Length> {sessionLength}</Length>
-        <FlatButton id="session-decrement" onClick={() => sessionDec()}>
+        <FlatButton id="session-increment" onClick={() => sessionInc()}>
           {">"}
         </FlatButton>
       </SessionLabelWrapper>

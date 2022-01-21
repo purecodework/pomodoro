@@ -26,6 +26,7 @@ const Title = styled.h1`
   text-align: center;
   font-size: 24px;
   font-weight: normal;
+  color: #64748b;
 `;
 
 const ControlWrapper = styled.div`
@@ -42,12 +43,6 @@ const ResetWrapper = styled.div`
   margin-left: 5%;
 `;
 
-const LabelWrapper = styled.div`
-  margin-top: 10%;
-  display: flex;
-  flex-direction: row;
-`;
-
 const App = () => {
   const [isStart, setIsStart] = useState(false);
   const [isSession, setIsSession] = useState(true);
@@ -57,8 +52,8 @@ const App = () => {
   });
 
   const [sessionLength, setSessionLength] = useState({
-    sessionLength: 1,
-    sessionLeft: 1 * 60,
+    sessionLength: 25,
+    sessionLeft: 25 * 60,
   });
   //break and session control
   const breakInc = () => {

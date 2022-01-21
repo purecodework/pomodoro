@@ -1,13 +1,8 @@
-import ControlButton from "../styles/ControlButton";
 import styled from "styled-components";
 const ResetWrapper = styled.div`
   background: #e0e0e0;
-
   padding-top: 20px;
   margin-left: 30px;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
 `;
 
 const Reset = ({ onReset }) => {
